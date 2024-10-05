@@ -11,7 +11,18 @@ type lextest struct {
 
 func yieldLexTests() map[string]lextest {
 	return map[string]lextest{
-		"empty": lextest{"", []Token{}},
+		"empty": lextest{"",
+			[]Token{},
+		},
+		"add": lextest{"(+ 1 2)",
+			[]Token{
+				*getSpecial["("],
+				Token{"S", "+"},
+				Token{"S", "1"},
+				Token{"S", "2"},
+				*getSpecial[")"],
+			},
+		},
 	}
 
 }
