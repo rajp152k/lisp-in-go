@@ -1,7 +1,7 @@
 package lexer
 
 
-func Lexer(source string) TokenStream {
+func Lexer(source string) []Token {
 
-	return TokenStream{}
+	return []Token{}
 }

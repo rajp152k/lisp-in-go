@@ -21,8 +21,6 @@ func newSymbol(repr string) *Symbol {
 	return &Symbol{*newToken("S", repr)}
 }
 
-type TokenStream []Token
-
 var getSpecial map[string]*Token
 
 func init() {

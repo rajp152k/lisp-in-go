@@ -4,5 +4,29 @@ import (
 	"testing"
 )
 
-func TestLexer(t *testing.T){
+type lextest struct {
+	source string
+	lexed  []Token
+}
+
+func yieldLexTests() map[string]lextest {
+	return map[string]lextest{
+		"empty": lextest{"", []Token{}},
+	}
+
+}
+
+func TestLexer(t *testing.T) {
+	for name, lext := range yieldLexTests() {
+		name, lext := name, lext
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
+			lexed := Lexer(lext.source)
+			if !equalTokenStream(lexed, lext.lexed) {
+				t.Fail()
+			}
+
+		})
+
+	}
 }
