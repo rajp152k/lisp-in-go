@@ -10,9 +10,5 @@ The basics of any program's journey from being source to being executed:
 
 I plan to evolve the language over time, iterating with minor upgrades.
 
-* Progress Log
-** 0x22DA : Token streams
-- starting out with the basics
-- I only need to be able to read in whitespaces, LParens, RParens, and symbols
-- a primal TDD approach sounds good to being with
-- might have to pull out regexp matching: reading character by character might be an interesting experience in itself though
+- Progress logs are being maintained in the ideation buffer: https://buffer.thebitmage.com/sitemap?stack=%2F20241005165131-writing_a_lisp_in_golang.html
+
