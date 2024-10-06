@@ -17,6 +17,10 @@ func newSymbol(repr string) *Token {
 	return newToken("S", repr)
 }
 
+func newString(raw string) *Token {
+	return &Token{"STR", raw}
+}
+
 var getSpecial map[string]*Token
 
 func isSpecial(id string) bool {
