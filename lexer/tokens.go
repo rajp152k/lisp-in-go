@@ -1,27 +1,27 @@
 package lexer
 
+import (
+	"strings"
+)
+
 type Token struct {
 	id   string
 	repr string
-}
-
-type Symbol struct {
-	Token
-}
-
-type Special struct {
-	Token
 }
 
 func newToken(id string, repr string) *Token {
 	return &Token{id, repr}
 }
 
-func newSymbol(repr string) *Symbol {
-	return &Symbol{*newToken("S", repr)}
+func newSymbol(repr string) *Token {
+	return newToken("S", repr)
 }
 
 var getSpecial map[string]*Token
+
+func isSpecial(id string) bool {
+	return strings.Contains("()'`;\t \n", id)
+}
 
 func init() {
 	//initializing special tokens
@@ -31,4 +31,7 @@ func init() {
 	getSpecial["'"] = newToken("Q", "'")
 	getSpecial["`"] = newToken("QQ", "`")
 	getSpecial[","] = newToken("UQ", ",")
+	getSpecial["\t"] = newToken("TB", "\t")
+	getSpecial[" "] = newToken("SP", " ")
+	getSpecial["\n"] = newToken("NL", "\n")
 }
